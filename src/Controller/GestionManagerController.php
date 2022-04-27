@@ -11,8 +11,11 @@ class GestionManagerController extends AbstractController
     #[Route('/gestion/manager', name: 'app_gestion_manager')]
     public function index(): Response
     {
+        $user = $this->getUser();
+
         return $this->render('gestion/manager.html.twig', [
-            'controller_name' => 'GestionManagerController',
+            'title' => 'Hypnos- Gestion Manager.',
+            'user' => $user,
         ]);
     }
 }

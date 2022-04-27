@@ -11413,7 +11413,7 @@ h2, .h2 {
   justify-content: center;
 }
 
-.gestionadmin {
+.gestion {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -11422,7 +11422,7 @@ h2, .h2 {
   justify-content: center;
   align-items: center;
 }
-.gestionadmin .definition {
+.gestion .definition {
   color: #eaeed8;
   font-size: x-large;
   text-align: center;
@@ -11508,6 +11508,25 @@ table .img-image {
   z-index: 2;
 }
 
+.gestiondevotrehotel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.gestiondevotrehotel h5, .gestiondevotrehotel .h5 {
+  color: #eaeed8;
+  font-family: Lucida Console, serif;
+  font-size: 26px;
+}
+.gestiondevotrehotel .renseignementhotel, .gestiondevotrehotel .picturehotel, .gestiondevotrehotel .buttonhotel {
+  width: 100%;
+  font-size: 21px;
+}
+.gestiondevotrehotel .renseignementhotel li, .gestiondevotrehotel .picturehotel li, .gestiondevotrehotel .buttonhotel li {
+  color: white;
+}
+
 @media only screen and (min-width: 1350px) {
   table .img-image {
     transform: rotate(0deg);
@@ -11525,10 +11544,10 @@ table .img-image {
     margin: auto;
   }
 
-  .gestionadmin {
+  .gestion {
     flex-direction: row;
   }
-  .gestionadmin .definition {
+  .gestion .definition {
     width: 100%;
   }
 
@@ -11556,6 +11575,11 @@ table .img-image {
   }
 
   .button-hotel, #redirectregister {
+    flex-direction: row;
+  }
+
+  .gestiondevotrehotel {
+    display: flex;
     flex-direction: row;
   }
 }

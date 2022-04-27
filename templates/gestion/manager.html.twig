@@ -1,5 +1,64 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <h2 class="h2history">Gestion <br> Manager</h2>
+    <div class="gestion">
+        <div class="image">
+            <img src=" {{ asset('image/gestion/admin-pic.png') }}" alt="admin picture logo" >
+        </div>
+        <div class="definition">
+            <p>
+                Le webmaster contribue à la gestion opérationnelle d'un ou des site(s) internet. Il intègre les images et supports multimédia dans les outils de gestion de contenu, développe de nouvelles fonctionnalités dynamiques, gère l'interface utilisateur et assure la mise en ligne des opérations commerciales. Il est le garant du développement et de l'évolution du site de vente.
+            </p>
+        </div>
+    </div>
+    <h2>Vos <br> Coordonnées</h2>
+    <div class="logs">
+        <div class="logutilisateur">
+            <table class="table table-dark">
+                <tbody>
+                <tr>
+                    <th scope="row">Image</th>
+                    <td><button class="btn " type="button">Modifier</button></td>
+                    <td><img class="img-image" src="{{ asset('image/icone/arrow-right.svg') }}" alt=" arrow"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td></td>
+                    <td>{{ user.email }}</td>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td><button class="btn " type="button">Modifier</button></td>
+                    <td>{{ user.name }}</td>
+                <tr>
+                    <th scope="row">Prénom</th>
+                    <td><button class="btn " type="button">Modifier</button></td>
+                    <td>{{ user.lastname }}</td>
+                <tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="image" id="imageadmin2">
+            <img src=" {{ asset('image/picture-recue/manager1.jpg') }}" alt="admin picture" >
+        </div>
+    </div>
+    <h2 class="h2history">Gestion de<br> votre Hotel</h2>
+    <div class="gestiondevotrehotel">
+        <div class="renseignementhotel">
+            <h5>Renseignement de votre hotel</h5>
+            <ul>
+                <li>Nom de l'hotel : </li>
+                <li>Adresse : </li>
+                <li>Description : </li>
+                <li>Nombre de chambre etc</li>
+            </ul>
+        </div>
+        <div class="picturehotel">
 
+        </div>
+        <div class="buttonhotel">
+            <h5>Que souhaitez vous faire ? </h5>
+        </div>
+    </div>
 {% endblock %}

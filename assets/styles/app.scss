@@ -295,7 +295,7 @@ h2 {
 }
 
 
-.gestionadmin {
+.gestion {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -385,6 +385,26 @@ table {
 .modal {
   z-index: 2;
 }
+.gestiondevotrehotel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h5 {
+    color: $button;
+    font-family: $titre;
+    font-size: 26px;
+
+  }
+  .renseignementhotel, .picturehotel,  .buttonhotel{
+    width: 100%;
+    font-size: 21px;
+    li {
+      color: white;
+    }
+  }
+}
 
 @media only screen and (max-width: 600px) {
 }
@@ -411,7 +431,7 @@ table {
       margin: auto;
     }
   }
-      .gestionadmin {
+      .gestion {
     flex-direction: row;
     .definition {
       width: 100%;
@@ -440,6 +460,10 @@ table {
     }
   }
   .button-hotel, #redirectregister {
+    flex-direction: row;
+  }
+  .gestiondevotrehotel {
+    display: flex;
     flex-direction: row;
   }
 }
