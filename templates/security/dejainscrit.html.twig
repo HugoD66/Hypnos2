@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+
+    <h2>Impossible  ! </h2>
+    <div class="contain-explain" id="redirectregister">
+        <div class="explain">
+            <p>Vous êtes déja connecté en tant que {{ user.name }}, vous ne pouvez pas vous enregistrer à nouveau.</p>
+        </div>
+        <div class="explain-pic" >
+            <img src=" {{ asset('image/redirectregister/dejainscrit.jpg') }}" alt="Adulte pas bien content">
+        </div>
+    </div>
+
+{% endblock %}

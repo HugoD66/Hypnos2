@@ -1,0 +1,19 @@
+
+ Creation GIT
+ Creation Accés gestioncompte
+
+
+
+
+
+ <div class="votrecompte">
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {%  if is_granted('ROLE_ADMIN') %}
+                <button type="button" class="btn" id="footer-btn"><a href="{{ path('app_gestion_admin') }}">Votre compte</a></button>
+            {% elseif is_granted('ROLE_MANAGER') %}
+                <button type="button" class="btn" id="footer-btn"><a href="{{ path('app_gestion_manager') }}">Votre compte</a></button>
+            {% elseif is_granted('ROLE_USER') %}
+                <button type="button" class="btn" id="footer-btn"><a href="{{ path('app_gestion_user') }}">Votre compte</a></button>
+            {% endif %}
+        {% endif %}
+        </div>

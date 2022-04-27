@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Admin {
+createHotel()
+modifyHotel()
+removeHotel()
+createManager()
+modifyManager()
+removeManager()
+}
+class Manager {
+Id
+Name
+Lastname
+Email
+Password
+ManageHotel
+ManageRoom
+createRoom()
+modifyRoom()
+removeRoom()
+}
+class Client {
+Id
+Name
+Lastname
+Email
+Password
+Room
+takeRoom()
+forgetRoom()
+}
+class Hotel {
+Name
+Address
+Description
+Managedby
+gotRoom
+}
+class Room {
+Title
+Picture
+Description
+Price
+Pictures
+Lien
+InHotel
+isFree()
+tookby()
+}
+
+Manager "1"--|> "1..n"Room
+Client "1"--|> "1..n"Room
+Admin "1"--|> "7"Manager
+Manager "1" --|> "1"Hotel
+Hotel "1"--|> "1..n"Room
+@enduml

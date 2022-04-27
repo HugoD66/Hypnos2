@@ -1,0 +1,77 @@
+Hypnos groupe hotelier 2004  en France - pour les couples etc -
+Proprio 7 Etablissement
+
+
+
+utilisateurs :
+-admin:                                                             recoit les contactus mails
+
+        creer les gérants
+              modifi
+              supprimer
+
+
+
+-gérant:                      nom, prénom,email, mdp              (depuis son interface utilisateur: voit que etablissement dont il assume gestion)
+       gestionRoom                                                 indique 1 ou + suites
+
+-client:                      nom, prénom,email, mdp               peut parcourir ses reservations, peut annuler au besoin ( pas -3 jours avant la date inscrite )
+    takeroom
+    removeroom(3d before)
+
+-visiteur:                                                         peut parcourir site ( acceuil + pages des 7 établissements)
+
+
+entitées :
+-hotel
+    7 differents            nom, ville, adresse, description            propre page web ou est représentée sous forme d'une liste chaque suite avec ses informations
+
+    relation
+
+-suite (1..n)                titre, image, texte descriptif, prix, galerie d'image en + , lien vers reservation booking.com    (prix fixe quel que soit periode)
+    isFree
+
+    relation
+
+
+
+
+
+
+pr structure page :
+
+
+    -page acceuil principal
+        7 pages 1 pr chaque site établissement       ( si toutes suites dispos ,  y a un bouton réserver qui redirige form, mais les champs (établissement, suite) sont préremplis
+
+
+    -page form connexion / inscription gérant / inscription   client ( comme gérant)
+
+    -page form reservation suite         => choix etablissement, choix suite, date début séjour/ fin séjour     PS sans rechargement de page,  on doit trouver si elle est libre ou pas
+        SI il peut valider sa résa, il doit se co ou creer un compte !!!!
+
+
+
+GESTION :       RECEPTION FORMULAIRE CONTACT US
+                VOIR LISTE MANAGER (Gestion manager clear accept etc)
+                Deifnition admin
+
+liste hotels :
+
+                <h3>Hotel Bon'Appart</h3>
+                <h3>Hotel Ville Paris</h3>
+                <h3>Hotel Bour la Madame</h3>
+                <h3>Hotel Peste tôt</h3>
+                <h3>Hotel Patrie Moine</h3>
+                <h3>Hotel Côtte d'or</h3>
+                <h3>Hotel Bro' Chette</h3>
+
+
+
+A FAIRE :
+
+
+ In RegistrationController::verifyUserEmail():
+    * Make sure you're rendering success flash messages or change the $this->addFlash() line.
+
+

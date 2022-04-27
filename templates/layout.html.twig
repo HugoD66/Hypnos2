@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenu.{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+    <a id="haut"></a>
+    <img src=" {{ asset('image/img-hypnos-removebg.png') }}" alt="hypnos image de fond" class="image-top">
+    <div class="container">
+        <div class="leftnav">
+            <div class="tleftnav">
+                {% if app.user %}
+                    <button type="button" class="btn"><a href="{{ path('app_logout') }}">Déconnexion</a></button>
+                {% else %}
+                    <button type="button" class="btn"><a href="{{ path('app_login') }}">Connexion</a></button>
+                {% endif %}
+            </div>
+            <div class="bleftnav">
+                {% if app.user  %}
+                    <button type="button" class="btn"><a href="{{ path('app_deja_inscrit') }}">S'enregistrer</a></button>
+                {% else %}
+                    <button type="button" class="btn"><a href="{{ path('app_register') }}">S'enregistrer</a></button>
+                {% endif %}
+            </div>
+        </div>
+        <div class="rightnav">
+            <div class="trightnav">
+
+                <button type="button" class="btn">
+                    <a href="
+                        {% if url('app_home') %}
+                    #bas"
+                        {% else %}
+                    {{ path('app_home') }}
+                        {% endif %}
+                        >Nos Hotels</a></button>
+            </div>
+            <div class="brightnav">
+                <button type="button" class="btn"data-toggle="modal" data-target="#staticBackdrop"><span></span>En savoir plus.</button>
+            </div>
+        </div>
+    </div>
+{% block body %}
+
+
+{% endblock %}
+<footer>
+    <div class="footton">
+        <div class="hautpage">
+            <button type="button" class="btn" id="footer-btn"><a href="#haut">haut de page</a></button>
+        </div>
+        <div class="nouscontacter">
+            <button type="button" class="btn" id="footer-btn"><a href=" {{ path('app_contactus') }} ">Nous contacter</a></button>
+        </div>
+        <div class="votrecompte">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {%  if is_granted('ROLE_ADMIN') %}
+                    <button type="button" class="btn" id="footer-btn"><a href="{{ path('app_gestion_admin') }}">Votre compte</a></button>
+                {% elseif is_granted('ROLE_MANAGER') %}
+                    <button type="button" class="btn" id="footer-btn"><a href="{{ path('app_gestion_manager') }}">Votre compte</a></button>
+                {% elseif is_granted('ROLE_USER') %}
+                    <button type="button" class="btn" id="footer-btn"><a href="{{ path('app_gestion_user') }}">Votre compte</a></button>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer">
+            <div class="footer-icons">
+                <img class="img-courrier" src="{{ asset('image/icone/envelope-fill.svg') }}" alt="courrier">
+            </div>
+            <div class="footer-icons">
+                <img class="img-fb" src="{{ asset('image/icone/facebook.svg') }}" alt="facebook">
+            </div>
+            <div class="footer-icons">
+                <img class="img-git" src="{{ asset('image/icone/github.svg') }}" alt="github">
+            </div>
+            <div class="footer-icons">
+                <img class="img-tel" src="{{ asset('image/icone/telephone-fill.svg') }}" alt="telephone">
+            </div>
+        </div>
+</footer>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+
+    </body>
+
+
+
+    <div class="modal  fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <img class="back-modal" src="{{ asset('image/backfloote.jpg') }}" alt="Image du modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titre-modal">En savoir plus ...</h5>
+                </div>
+                <div class="modal-body">
+                    <p>      En matière d’émissions de CO2, il pollue 1.5 fois plus que le transport aérien. D’ailleurs, en 20
+                        ans, le poids d’une page web a été multiplié par 115 (source : https://www.greenit.fr/)
+                        Face à ce constat, un organisme de formation a été fondé en 2017 : EcoIT.<br><br>        Son objectif est
+                        d’être une plateforme d’éducation permettant à tout instructeur expert en accessibilité et en
+                        éco-conception web de présenter des modules de cours.<br><br>
+                        À terme, EcoIT désire devenir la référence française pour les développeurs soucieux de leur
+                        impact digital. Et pourquoi pas délivrer enfin un label officiel pour classer les sites web selon
+                        leur empreinte numérique.</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-bs-dismiss="modal">Retour Acceuil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</html>
