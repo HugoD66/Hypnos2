@@ -11535,6 +11535,38 @@ table .img-image {
   margin-right: auto;
 }
 
+.ajoutmanagergestion {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 15%;
+}
+.ajoutmanagergestion .btn {
+  margin-top: 5%;
+  height: 75px;
+  width: 180px;
+  background-image: linear-gradient(to right, #000000 0%, #776d67 51%, #eaeed8 100%);
+  text-align: center;
+}
+.ajoutmanagergestion .btn {
+  margin: 10px;
+  font-family: Bahnschrift, serif;
+  padding: 5px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #eaeed8;
+  border-color: #b2aa9c;
+  box-shadow: 0 0 20px #3C3636FF;
+  border-radius: 10px;
+  display: block;
+}
+.ajoutmanagergestion .btn:hover {
+  background-position: right center;
+  color: #eaeed8;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 1350px) {
   table .img-image {
     transform: rotate(0deg);

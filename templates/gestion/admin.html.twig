@@ -68,7 +68,7 @@
     </table>
 </div>
     <div class="ajoutmanagergestion">
-        <button type="button" class="btn boutoun">Ajouter un Manager</button>
+        <button type="button" class="btn"><a href="{{ path('app_manager_add_form') }}">Nouveau Manager</a></button>
     </div>
     <h2>Vos  <br> Formulaires reçues</h2>
     <div class="explainselectionsujet">
@@ -125,10 +125,13 @@
         </tr>
         </thead>
         <tbody>
-        {% for n in usermanager %}
+        {% for h in hotel %}
         <tr>
             <td>
-               {{ n.name }}
+
+            </td>
+            <td>
+                {{ h.name }}
             </td>
         </tr>
         {% endfor %}

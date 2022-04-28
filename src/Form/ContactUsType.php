@@ -18,10 +18,23 @@ class ContactUsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('lastname', TextType::class)
-            ->add('email', TextType::class)
+            ->add('name', TextType::class, [
+                'label' => 'Votre nom : ',
+                'attr' => array(
+                    'placeholder' => 'Dubois')
+            ])
+            ->add('lastname', TextType::class, [
+                'label' => 'Votre prénom : ',
+                'attr' => array(
+                    'placeholder' => 'Jean-Didier')
+            ])
+            ->add('email', TextType::class, [
+                'label' => 'Votre email : ',
+                'attr' => array(
+                    'placeholder' => 'example@email.com')
+            ])
             ->add('list', ChoiceType::class, [
+                'label' => 'Sujet : ',
                 'choices' => [
                     'Je souhaite poser une réclamation' => 0,
                     'Je souhaite commander un service supplémentaire' => 1,
@@ -30,7 +43,9 @@ class ContactUsType extends AbstractType
                 ],
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Précisez votre demande:'
+                'label' => 'Précisez votre demande :',
+                'attr' => array(
+                    'placeholder' => 'Je me permet de vous contacter afin de vous féliciter pour la création de votre site')
             ])
             ->add('submit', SubmitType::class, array(
                 'label' => 'Enregistrer'

@@ -75,4 +75,11 @@ class HotelRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function getHotelList()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.id, u.name, u.adress, u.description')
+            ->getQuery()
+            ->getResult();
+    }
 }

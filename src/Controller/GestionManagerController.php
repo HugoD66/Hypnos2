@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity;
 use App\Form\PictureType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,37 +17,33 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class GestionManagerController extends AbstractController
 {
     #[Route('/gestion/manager', name: 'app_gestion_manager')]
-    public function index(Request $request, SluggerInterface $slugger): Response
+    public function index(EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger): Response
     {
         $user = $this->getUser();
-
-
         $form = $this->createForm(PictureType::class, $user);
-
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
-
             $picturefile = $form->get('picture')->getData();
-
-
             if ($picturefile) {
                 $originalFilename = pathinfo($picturefile->getClientOriginalName(), PATHINFO_FILENAME);
                 // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename . '-' . uniqid() . '.' . $picturefile->guessExtension();
-
-                // Move the file to the directory where picture are stored
                 try {
                     $picturefile->move(
                         $this->getParameter('picture-gestion'),
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
                 }
+                $entityManager->persist((object)$newFilename);
+
+                $entityManager->flush();
+
 
             }
+
+            return $this->redirectToRoute('app_gestion_manager');
         }
 
         return $this->render('gestion/manager.html.twig', [
