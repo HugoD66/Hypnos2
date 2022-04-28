@@ -78,7 +78,7 @@ class ContactUsRepository extends ServiceEntityRepository
     public function getContactUsList()
     {
         return $this->createQueryBuilder('u')
-            ->select('u.name, u.lastname, u.email, u.list, u.description')
+            ->select('u.id, u.name, u.lastname, u.email, u.list, u.description')
             ->getQuery()
             ->getResult();
     }

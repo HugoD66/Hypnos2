@@ -65,7 +65,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function getListManager()
     {
         return $this->createQueryBuilder('u')
-            ->select('u.name, u.lastname, u.email')
+            ->select('u.id, u.name, u.lastname, u.email')
             ->andWhere('u.roles = :val')
             ->setParameter('val', '["ROLE_MANAGER"]')
             ->getQuery()

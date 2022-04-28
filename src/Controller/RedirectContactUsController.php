@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class RedirectregisterController extends AbstractController
+class RedirectContactUsController extends AbstractController
 {
-    #[Route('/redirectregister', name: 'app_redirectifregister')]
+    #[Route('/redirect/contactus', name: 'app_redirect_contact_us')]
     public function index(): Response
     {
-        return $this->render('registration/redirectifregister.html.twig', [
-            'title' => 'Hypnos- Redirection Enregistrement'
+        return $this->render('form/redirectcontactus.html.twig', [
+            'title' => 'Hypnos- Redirection ContactUs',
         ]);
     }
 }

@@ -50,7 +50,7 @@
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
             <th scope="col">Email</th>
-            <th scope="col">Supprimer</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         {% for n in usermanager %}
@@ -59,7 +59,9 @@
             <td>{{ n.name }}</td>
             <td>{{ n.lastname }}</td>
             <td>{{ n.email }}</td>
-            <td><button class="btn " type="button"></button></td>
+            <td><button class="btn " type="button">
+                    <a href="{{ path('manager_delete', {'id': n.id}) }}" onclick="return confirm('Etes vous sûre de supprimer ce manager?  ')">Supprimer</a>
+                </button></td>
         </tr>
         </tbody>
         {% endfor %}
@@ -79,7 +81,11 @@
 
         </ol></p>
     </div>
+
     <div class="managerlist">
+    {% if contactuslist is empty %}
+        <p>Vous n'avez aucun formulaire pour le moment.</p>
+    {% else %}
         <table class="table" id="tablemanagergestion">
             <thead>
             <tr>
@@ -88,7 +94,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Sujet</th>
                 <th scope="col">Description</th>
-                <th scope="col">Supprimer</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             {% for u in contactuslist %}
@@ -99,12 +105,16 @@
                         <td>{{ u.email }}</td>
                         <td>{{ u.list }}</td>
                         <td>{{ u.description }}</td>
-                        <td><button class="btn " type="button"></button></td>
+                        <td><button class="btn " type="button">
+                                <a href="{{ path('delete_form', {'id': u.id}) }}" onclick="return confirm('Etes vous sûre de supprimer ce formulaire?  ')">Supprimer</a>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             {% endfor %}
         </table>
     </div>
+    {% endif %}
 <h2 class="h2history">Gestion <br> Hotels/Managers</h2>
 <div class="ghotelmanager">
     <table class="table" id="tablemanagergestion">

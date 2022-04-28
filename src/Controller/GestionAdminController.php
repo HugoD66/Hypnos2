@@ -29,17 +29,31 @@ class GestionAdminController extends AbstractController
         ]);
     }
 
-    #[Route('/gestion/admin/delete/{id}', name: 'delete_form')]
-    public function remove(ManagerRegistry $doctrine, EntityManagerInterface $entityManager, int $id): Response
+    #[Route('/gestion/admin/remove/contactus/{id}', name: 'delete_form')]
+    public function remove(ManagerRegistry $doctrine,  $id): Response
     {
-        $delete = $doctrine->getRepository($this->$id)->find($id);
-
-        $entityManager->remove((object)$id);
+        $entityManager = $doctrine->getManager();
+        $contact = $entityManager->getRepository(ContactUs::class)->findOneBy(['id' => $id]);
+        $entityManager->remove($contact);
         $entityManager->flush();
 
-        return $this->render('gestion/admin.html.twig', [
-            'remove' => $delete,
-            ]);
-
+        return $this->redirectToRoute('app_gestion_admin', [
+        ]);
     }
+
+    #[Route('/gestion/admin/remove/manager/{id}', name: 'manager_delete')]
+    public function delete(ManagerRegistry $doctrine,  $id): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $manager = $entityManager->getRepository(User::class)->findOneBy(['id' => $id]);
+        $entityManager->remove($manager);
+        $entityManager->flush();
+
+
+        return $this->redirectToRoute('app_gestion_admin', [
+            'usermanager' => $manager,
+
+        ]);
+    }
+
 }

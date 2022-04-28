@@ -1,15 +1,16 @@
 {% extends 'layout.html.twig' %}
 
+
 {% block body %}
     <title>{% block title %}{{ title }}{% endblock %}</title>
 
-    <h2>Félicitation  ! </h2>
+<h2>Félicitation  ! </h2>
 <div class="contain-explain" id="redirectregister">
     <div class="explain">
-        <p>Vous vous êtes enregistré. Vérifiez maintenant votre boite mail pour finaliser votre inscirption !</p>
+        <p>Vous avez bien envoyé votre formulaire, notre administrateur vous repondra sous de plus bref delais ! </p>
     </div>
     <div class="explain-pic" >
-        <img src=" {{ asset('image/redirectregister/joie.webp') }}" alt="Enfant bien content ">
+        <img src=" {{ asset('image/redirectregister/happy.jpg') }}" alt="Homer en joie">
     </div>
 </div>
 {% endblock %}

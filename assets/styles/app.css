@@ -11462,7 +11462,7 @@ table {
 }
 table .btn {
   height: 35px;
-  width: 100px;
+  width: 125px;
   background-image: linear-gradient(to right, #000000 0%, #776d67 51%, #eaeed8 100%);
   text-align: center;
 }
@@ -11525,6 +11525,14 @@ table .img-image {
 }
 .gestiondevotrehotel .renseignementhotel li, .gestiondevotrehotel .picturehotel li, .gestiondevotrehotel .buttonhotel li {
   color: white;
+}
+
+.managerlist p {
+  background-color: #B0413E;
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media only screen and (min-width: 1350px) {
