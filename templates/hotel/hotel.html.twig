@@ -1,5 +1,14 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <section>
+        <div class="main-title">
+            <div class="child1">Hypnos</div>
+            <div class="child2">{{ id }}</div>
+        </div>
+    </section>
+
+    <h2>Explain</h2>
 
 {% endblock %}

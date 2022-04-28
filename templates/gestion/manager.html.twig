@@ -40,8 +40,10 @@
             </table>
         </div>
         <div class="image" id="imageadmin2">
-            <img src=" {{ asset('image/picture-recue/manager1.jpg') }}" alt="admin picture" >
+            <img src=" {{ user.picture }}" alt="admin picture" >
         </div>
+        <p>{{ form(form) }}</p>
+
     </div>
     <h2 class="h2history">Gestion de<br> votre Hotel</h2>
     <div class="gestiondevotrehotel">
@@ -60,5 +62,6 @@
         <div class="buttonhotel">
             <h5>Que souhaitez vous faire ? </h5>
         </div>
+
     </div>
 {% endblock %}

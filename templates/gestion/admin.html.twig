@@ -51,7 +51,6 @@
             <th scope="col">Prénom</th>
             <th scope="col">Email</th>
             <th scope="col">Supprimer</th>
-            <th scope="col">Modifier</th>
         </tr>
         </thead>
         {% for n in usermanager %}
@@ -60,7 +59,6 @@
             <td>{{ n.name }}</td>
             <td>{{ n.lastname }}</td>
             <td>{{ n.email }}</td>
-            <td><button class="btn " type="button"></button></td>
             <td><button class="btn " type="button"></button></td>
         </tr>
         </tbody>
@@ -91,7 +89,6 @@
                 <th scope="col">Sujet</th>
                 <th scope="col">Description</th>
                 <th scope="col">Supprimer</th>
-                <th scope="col">Modifier</th>
             </tr>
             </thead>
             {% for u in contactuslist %}
@@ -103,14 +100,31 @@
                         <td>{{ u.list }}</td>
                         <td>{{ u.description }}</td>
                         <td><button class="btn " type="button"></button></td>
-                        <td><button class="btn " type="button"></button></td>
                     </tr>
                 </tbody>
             {% endfor %}
         </table>
     </div>
-
-
+<h2 class="h2history">Gestion <br> Hotels/Managers</h2>
+<div class="ghotelmanager">
+    <table class="table" id="tablemanagergestion">
+        <thead>
+        <tr>
+            <th scope="col">Managers</th>
+            <th scope="col">Hotels</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for n in usermanager %}
+        <tr>
+            <td>
+               {{ n.name }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
     <br>
     <br>
     <br>

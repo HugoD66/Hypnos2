@@ -12,7 +12,7 @@ class GestionUserController extends AbstractController
     public function index(): Response
     {
         return $this->render('gestion/user.html.twig', [
-            'controller_name' => 'GestionUserController',
+            'title' => 'Hypnos- Gestion Utilisateur.',
         ]);
     }
 }

@@ -13,27 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HotelController extends AbstractController
 {
-    #[Route('/hotel/{user}', name: 'app_hotel')]
+    #[Route('/hotel/{id}', name: 'app_hotel')]
     public function update(ManagerRegistry $doctrine, int $id): Response
     {
-
-        $entityManager = $doctrine->getManager();
-        $product = $entityManager->getRepository(User::class)->find($id);
-
-        if (!$product) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-
-        $product->setGotHotel('1');
-        $entityManager->flush();
-
+        $hotel = $doctrine->getRepository(Hotel::class)->find($id);
 
         return $this->render('hotel/hotel.html.twig', [
-            'controller_name' => 'HotelController',
-            'id' => $product->getId()
-
+            'title' => 'Hypnos- Votre Hotel.',
+            'id' => $hotel,
         ]);
     }
 }

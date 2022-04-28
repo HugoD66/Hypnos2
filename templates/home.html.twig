@@ -1,8 +1,9 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+
     <section>
         <div class="main-title">
             <div class="child1">Hypnos</div>
@@ -41,7 +42,7 @@
             </div>
             <div class="button-hotel">
                 <button type="button" class="btn btn-primary">Infos</button>
-                <button type="button" class="btn btn-primary">Accés site</button>
+                <button type="button" class="btn btn-primary"><a href="{{ path('app_hotel', {'id': '1'}) }}">Accés site</a></button>
             </div>
             <div class="pic-hotel">
                 <img src="{{ asset('image/home-picture/hotel/hotel1.jpg') }}" alt="hotel 1">
@@ -53,7 +54,7 @@
             </div>
             <div class="button-hotel">
                 <button type="button" class="btn btn-primary">Infos</button>
-                <button type="button" class="btn btn-primary">Accés site</button>
+                <button type="button" class="btn btn-primary"><a href="{{ path('app_hotel', {'id': '2'}) }}">Accés site</a></button>
             </div>
             <div class="title-explain-hotel">
                 <h3>Hotel <br>Ville Paris</h3>
@@ -65,7 +66,7 @@
             </div>
             <div class="button-hotel">
                 <button type="button" class="btn btn-primary">Infos</button>
-                <button type="button" class="btn btn-primary">Accés site</button>
+                <button type="button" class="btn btn-primary"><a href="{{ path('app_hotel', {'id': '3'}) }}">Accés site</a></button>
             </div>
             <div class="pic-hotel">
                 <img src="{{ asset('image/home-picture/hotel/hotel3.jpg') }}" alt="hotel 3">
@@ -77,7 +78,7 @@
             </div>
             <div class="button-hotel">
                 <button type="button" class="btn btn-primary">Infos</button>
-                <button type="button" class="btn btn-primary">Accés site</button>
+                <button type="button" class="btn btn-primary"><a href="{{ path('app_hotel', {'id': '4'}) }}">Accés site</a></button>
             </div>
             <div class="title-explain-hotel">
                 <h3>Hotel <br>Peste tôt</h3>
@@ -89,7 +90,7 @@
             </div>
             <div class="button-hotel">
                 <button type="button" class="btn btn-primary">Infos</button>
-                <button type="button" class="btn btn-primary">Accés site</button>
+                <button type="button" class="btn btn-primary"><a href="{{ path('app_hotel', {'id': '5'}) }}">Accés site</a></button>
             </div>
             <div class="pic-hotel">
                 <img src="{{ asset('image/home-picture/hotel/hotel5.jpg') }}" alt="hotel 5">
@@ -101,7 +102,7 @@
             </div>
             <div class="button-hotel">
                 <button type="button" class="btn btn-primary">Infos</button>
-                <button type="button" class="btn btn-primary">Accés site</button>
+                <button type="button" class="btn btn-primary"><a href="{{ path('app_hotel', {'id': '6'}) }}">Accés site</a></button>
             </div>
             <div class="title-explain-hotel">
                 <h3>Hotel <br>Côtte d'or</h3>
@@ -113,7 +114,7 @@
             </div>
             <div class="button-hotel">
                 <button type="button" class="btn btn-primary">Infos</button>
-                <button type="button" class="btn btn-primary">Accés site</button>
+                <button type="button" class="btn btn-primary"><a href="{{ path('app_hotel', {'id': '7'}) }}">Accés site</a></button>
             </div>
             <div class="pic-hotel">
                 <img src="{{ asset('image/home-picture/hotel/hotel7.jpg') }}" alt="hotel 7">

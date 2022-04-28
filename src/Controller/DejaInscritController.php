@@ -20,7 +20,7 @@ class DejaInscritController extends AbstractController
 
 
         return $this->render('security/dejainscrit.html.twig', [
-            'controller_name' => 'DejaInscritController',
+            'title' => 'Hypnos- Vous êtes déja inscrit.',
             'user' => $user,
         ]);
     }

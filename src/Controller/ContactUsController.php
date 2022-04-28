@@ -30,7 +30,8 @@ class ContactUsController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
         return $this->renderForm('form/contactus.html.twig', [
-            'form' => $form
+            'title' => 'Hypnos- Contactez nous.',
+            'form' => $form,
         ]);
     }
 }

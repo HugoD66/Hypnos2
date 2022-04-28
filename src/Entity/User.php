@@ -7,6 +7,7 @@ Use Doctrine\Persistence\Mapping\Driver\StaticPHPDriver;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -44,6 +45,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToOne(mappedBy: 'managedby', targetEntity: Hotel::class, cascade: ['persist', 'remove'])]
     private $gotHotel;
+
+    #[Assert\Image(
+        minWidth: 200,
+        maxWidth: 800,
+        maxHeight: 800,
+        minHeight: 200,
+    )]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $picture;
 
     public function getId(): ?int
     {
@@ -164,6 +174,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->gotHotel = $gotHotel;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(File $picture = null): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
