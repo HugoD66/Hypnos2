@@ -9,6 +9,18 @@
         </div>
     </section>
 
-    <h2>Explain</h2>
+    <h2>{{ id }}</h2>
+<div class="explication-hotel">
+    <h3>Description de l'hotel : </h3>
+        <ul>
+            <li>Nom  : {{ id.name }}</li>
+            <li>Adresse : {{ id.adress }}</li>
+            <li>Gérant : {{ id.managedby }}</li>
+            <li>Description : {{ id.description }}</li>
+        </ul>
+    </div>
 
+    <h2 class="h2history">Histoire</h2>
+<div class="liste-room">
+</div>
 {% endblock %}

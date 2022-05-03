@@ -444,6 +444,14 @@ table {
     text-decoration: none;
   }
 }
+.explication-hotel {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: x-large;
+  font-family: $paragraphe;
+  color: $button;
+}
 @media only screen and (max-width: 600px) {
 }
 @media only screen and (min-width: 600px) {

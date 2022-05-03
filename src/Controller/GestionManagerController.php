@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity;
+use App\Entity\Hotel;
 use App\Form\PictureType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,6 +46,13 @@ class GestionManagerController extends AbstractController
 
             return $this->redirectToRoute('app_gestion_manager');
         }
+
+
+
+
+
+
+
 
         return $this->render('gestion/manager.html.twig', [
             'title' => 'Hypnos- Gestion Manager.',
