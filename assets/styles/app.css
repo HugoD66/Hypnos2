@@ -11158,6 +11158,7 @@ body {
 }
 .container .brightnav .btn, .container .trightnav .btn, .container .bleftnav .btn, .container .tleftnav .btn {
   font-family: Bahnschrift, serif;
+  text-decoration: none;
   color: #eaeed8;
   display: inline-block;
   box-shadow: none;
@@ -11165,18 +11166,17 @@ body {
   border: 0;
   outline: 0;
   background-color: #3C3636FF;
-  height: 140px;
-  width: 230px;
+  height: 130px;
+  width: 280px;
   line-height: 42px;
   padding: 0 30px;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
   border-radius: 30px;
   cursor: pointer;
-  transition: all 0.5s;
+  transition: all 1s;
   transition-timing-function: cubic-bezier(0.2, 3, 0.4, 1);
   user-select: none;
-  text-decoration: none;
 }
 .container .brightnav .btn:hover, .container .trightnav .btn:hover, .container .bleftnav .btn:hover, .container .tleftnav .btn:hover {
   transform: scale(1.1, 1.1);
@@ -11567,13 +11567,17 @@ table .img-image {
   text-decoration: none;
 }
 
-.explication-hotel {
+.explication-hotel, .description-hotel {
+  display: flex;
+  justify-content: center;
   width: 80%;
   margin-right: auto;
   margin-left: auto;
-  font-size: x-large;
+  font-size: 20px;
   font-family: Consolas, serif;
   color: #eaeed8;
+  background-color: rgba(182, 145, 144, 0.69);
+  text-align: center;
 }
 
 @media only screen and (min-width: 1350px) {
@@ -11620,7 +11624,8 @@ table .img-image {
     padding: 7%;
   }
   .container .bleftnav .btn, .container .brightnav .btn, .container .trightnav .btn, .container .tleftnav .btn {
-    height: 70px;
+    height: 90px;
+    width: 230px;
   }
 
   .button-hotel, #redirectregister {

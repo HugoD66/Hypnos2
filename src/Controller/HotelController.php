@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Hotel;
+use App\Entity\Room;
 use App\Entity\User;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,9 +19,12 @@ class HotelController extends AbstractController
     {
         $hotel = $doctrine->getRepository(Hotel::class)->find($id);
 
+        $room = $doctrine->getRepository(Room::class)->findAll();
+
         return $this->render('hotel/hotel.html.twig', [
             'title' => 'Hypnos- Votre Hotel.',
             'id' => $hotel,
+            'room' => $room,
         ]);
     }
 }

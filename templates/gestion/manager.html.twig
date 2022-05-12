@@ -9,7 +9,10 @@
         </div>
         <div class="definition">
             <p>
-                Le webmaster contribue à la gestion opérationnelle d'un ou des site(s) internet. Il intègre les images et supports multimédia dans les outils de gestion de contenu, développe de nouvelles fonctionnalités dynamiques, gère l'interface utilisateur et assure la mise en ligne des opérations commerciales. Il est le garant du développement et de l'évolution du site de vente.
+                Le webmaster contribue à la gestion opérationnelle d'un ou des site(s) internet. Il intègre les images et supports
+                multimédia dans les outils de gestion de contenu, développe de nouvelles fonctionnalités dynamiques, gère l'interface
+                utilisateur et assure la mise en ligne des opérations commerciales. Il est le garant du développement et de l'évolution
+                du site de vente.
             </p>
         </div>
     </div>
@@ -20,7 +23,7 @@
                 <tbody>
                 <tr>
                     <th scope="row">Image</th>
-                    <td><button class="btn " type="button">Modifier</button></td>
+                    <td></td>
                     <td><img class="img-image" src="{{ asset('image/icone/arrow-right.svg') }}" alt=" arrow"></td>
                 </tr>
                 <tr>
@@ -29,29 +32,28 @@
                     <td>{{ user.email }}</td>
                 <tr>
                     <th scope="row">Name</th>
-                    <td><button class="btn " type="button">Modifier</button></td>
+                    <td></td>
                     <td>{{ user.name }}</td>
                 <tr>
                     <th scope="row">Prénom</th>
-                    <td><button class="btn " type="button">Modifier</button></td>
+                    <td></td>
                     <td>{{ user.lastname }}</td>
                 <tr>
                 </tbody>
             </table>
         </div>
         <div class="image" id="imageadmin2">
-            <img src=" {{ user.picture }}" alt="admin picture" >
+            {% if user.getPicture() %}<img src="{{ asset('image/picture-recue/' ~ user.getPicture()) }}">{% endif %}
         </div>
         <p>{{ form(form) }}</p>
-
     </div>
     <h2 class="h2history">Gestion de<br> votre Hotel</h2>
     <div class="gestiondevotrehotel">
         <div class="renseignementhotel">
             <h5>Renseignement de votre hotel</h5>
             <ul>
-                <li>Nom de l'hotel : </li>
-                <li>Adresse : </li>
+                <li>Nom de l'hotel : {{ hotel }}</li>
+                <li>Adresse : {{ hotel }}</li>
                 <li>Description : </li>
                 <li>Nombre de chambre etc</li>
             </ul>

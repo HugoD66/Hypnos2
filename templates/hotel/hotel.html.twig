@@ -13,14 +13,14 @@
 <div class="explication-hotel">
     <h3>Description de l'hotel : </h3>
         <ul>
-            <li>Nom  : {{ id.name }}</li>
+            <li>Nom : {{ id.name }}</li>
             <li>Adresse : {{ id.adress }}</li>
             <li>Gérant : {{ id.managedby }}</li>
-            <li>Description : {{ id.description }}</li>
         </ul>
     </div>
-
-    <h2 class="h2history">Histoire</h2>
-<div class="liste-room">
+    <h2 class="h2history">Histoire de l'hotel</h2>
+<div class="description-hotel">
+            <p>{{ id.description }}</p>
 </div>
+    <h2><a href="#basde">Liste des chambres</a></h2>
 {% endblock %}

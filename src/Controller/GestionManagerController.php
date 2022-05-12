@@ -20,6 +20,9 @@ class GestionManagerController extends AbstractController
     #[Route('/gestion/manager', name: 'app_gestion_manager')]
     public function index(EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger): Response
     {
+
+        $hotel = $this->getUser();
+
         $user = $this->getUser();
         $form = $this->createForm(PictureType::class, $user);
         $form->handleRequest($request);
@@ -27,7 +30,6 @@ class GestionManagerController extends AbstractController
             $picturefile = $form->get('picture')->getData();
             if ($picturefile) {
                 $originalFilename = pathinfo($picturefile->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename . '-' . uniqid() . '.' . $picturefile->guessExtension();
                 try {
@@ -37,27 +39,17 @@ class GestionManagerController extends AbstractController
                     );
                 } catch (FileException $e) {
                 }
-                $entityManager->persist((object)$newFilename);
-
+                $user->setPicture($newFilename);
+                $entityManager->persist($user);
                 $entityManager->flush();
-
-
             }
-
             return $this->redirectToRoute('app_gestion_manager');
         }
-
-
-
-
-
-
-
-
         return $this->render('gestion/manager.html.twig', [
             'title' => 'Hypnos- Gestion Manager.',
             'user' => $user,
             'form' => $form->createView(),
+            'hotel' => $hotel,
 
         ]);
     }

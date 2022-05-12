@@ -16,7 +16,7 @@ class Room
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string')]
     private $picture;
 
     #[ORM\Column(type: 'text')]
@@ -25,7 +25,7 @@ class Room
     #[ORM\Column(type: 'float')]
     private $price;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string')]
     private $pictures;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -122,6 +122,10 @@ class Room
         $this->hotel = $hotel;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->title;
     }
 
 }

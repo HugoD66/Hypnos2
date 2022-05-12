@@ -50,7 +50,7 @@ class ContactUsType extends AbstractType
             ->add('submit', SubmitType::class, array(
                 'label' => 'Enregistrer'
             ));
-        ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

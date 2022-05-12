@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
 Use Doctrine\Persistence\Mapping\Driver\StaticPHPDriver;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -183,12 +185,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->picture;
     }
 
-    public function setPicture(File $picture = null): self
+    public function setPicture(string $picture): self
     {
         $this->picture = $picture;
 
         return $this;
     }
+
     public function __toString() {
         return $this->name;
     }

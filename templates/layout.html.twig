@@ -10,7 +10,7 @@
     </head>
     <body>
     <a id="haut"></a>
-    <img src=" {{ asset('image/img-hypnos-removebg.png') }}" alt="hypnos image de fond" class="image-top">
+    <a href="{{ path('app_home') }}"><img src=" {{ asset('image/img-hypnos-removebg.png') }}" alt="hypnos image de fond" class="image-top"></a>
     <div class="container">
         <div class="leftnav">
             <div class="tleftnav">
@@ -30,19 +30,17 @@
         </div>
         <div class="rightnav">
             <div class="trightnav">
-
                 <button type="button" class="btn">
-                    <a href="
-                        {% if url('app_home') %}
-                    #bas"
-                        {% else %}
-                    {{ path('app_home') }}
-                        {% endif %}
-                        >Nos Hotels</a></button>
+                    {% if url('app_home') == true %}
+                        <a href="#bas">Nos Hotels</a></button>
+                            {% elseif url('app_hotel') == true %}
+                    {% elseif url('app_hotel') == true%}
+                        <a href="#basde">Nos Chambres</a></button>
+                    {% endif %}
             </div>
-            <div class="brightnav">
-                <button type="button" class="btn"data-toggle="modal" data-target="#staticBackdrop"><span></span>En savoir plus.</button>
-            </div>
+                <div class="brightnav">
+                    <button type="button" class="btn"data-toggle="modal" data-target="#staticBackdrop"><span></span>En savoir plus.</button>
+                </div>
         </div>
     </div>
 {% block body %}
@@ -51,6 +49,8 @@
 {% endblock %}
 <footer>
     <div class="footton">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
         <div class="hautpage">
             <button type="button" class="btn" id="footer-btn"><a href="#haut">haut de page</a></button>
         </div>
@@ -58,7 +58,6 @@
             <button type="button" class="btn" id="footer-btn"><a href=" {{ path('app_contactus') }} ">Nous contacter</a></button>
         </div>
         <div class="votrecompte">
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 {%  if is_granted('ROLE_ADMIN') %}
                     <button type="button" class="btn" id="footer-btn"><a href="{{ path('app_gestion_admin') }}">Votre compte</a></button>
                 {% elseif is_granted('ROLE_MANAGER') %}
@@ -66,8 +65,15 @@
                 {% elseif is_granted('ROLE_USER') %}
                     <button type="button" class="btn" id="footer-btn"><a href="{{ path('app_gestion_user') }}">Votre compte</a></button>
                 {% endif %}
-            {% endif %}
         </div>
+            {% else %}
+                <div class="hautpage">
+                    <button type="button" class="btn" id="footer-btn"><a href="#haut">haut de page</a></button>
+                </div>
+                <div class="nouscontacter">
+                    <button type="button" class="btn" id="footer-btn"><a href=" {{ path('app_contactus') }} ">Nous contacter</a></button>
+                </div>
+        {% endif %}
     </div>
     <div class="footer">
             <div class="footer-icons">

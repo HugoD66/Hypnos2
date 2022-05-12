@@ -44,6 +44,7 @@ body {
     align-items: center;
     .btn {
       font-family: $boutons;
+      text-decoration: none;
       color: $button;
       display: inline-block;
       box-shadow: none;
@@ -51,18 +52,17 @@ body {
       border: 0;
       outline: 0;
       background-color: $title;
-      height: 140px;
-      width: 230px;
+      height: 130px;
+      width: 280px;
       line-height: 42px;
       padding: 0 30px;
-      font-size: 22px;
+      font-size: 26px;
       font-weight: bold;
       border-radius: 30px;
       cursor: pointer;
-      transition: all .5s;
+      transition: all 1s;
       transition-timing-function: cubic-bezier(.2, 3, .4, 1);
       user-select: none;
-      text-decoration: none;
       &:hover{
         transform: scale(1.1, 1.1);
       }
@@ -293,8 +293,6 @@ h2 {
 
   }
 }
-
-
 .gestion {
   display: flex;
   flex-direction: column;
@@ -381,7 +379,6 @@ table {
   margin-left: 30px;
   margin-bottom: 28px;
 }
-
 .modal {
   z-index: 2;
 }
@@ -444,13 +441,18 @@ table {
     text-decoration: none;
   }
 }
-.explication-hotel {
+.explication-hotel, .description-hotel {
+  display: flex;
+  justify-content: center;
   width: 80%;
   margin-right: auto;
   margin-left: auto;
-  font-size: x-large;
+  font-size: 20px;
   font-family: $paragraphe;
   color: $button;
+  background-color: rgba(182, 145, 144, 0.69);
+  text-align: center;
+
 }
 @media only screen and (max-width: 600px) {
 }
@@ -501,7 +503,9 @@ table {
       height: 50%;
       padding: 7%;
       .btn {
-        height: 70px;
+        height: 90px;
+        width: 230px;
+
       }
     }
   }
